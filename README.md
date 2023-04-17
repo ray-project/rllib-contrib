@@ -1,8 +1,8 @@
 # MAML (Model-Agnostic Meta-Learning for Fast Adaptation of Deep Networks)
 
-[MAML](https://arxiv.org/abs/1703.03400) is an on-policy meta RL algorithm. Unlike standard RL algorithms, which aim to maximize the sum of rewards into the future for a single task (e.g. HalfCheetah), meta RL algorithms seek to maximize the sum of rewards for *a given distribution of tasks*. 
+[MAML](https://arxiv.org/abs/1703.03400) is an on-policy meta RL algorithm. Unlike standard RL algorithms, which aim to maximize the sum of rewards into the future for a single task (e.g. HalfCheetah), meta RL algorithms seek to maximize the sum of rewards for *a given distribution of tasks*.
 
-On a high level, MAML seeks to learn quick adaptation across different tasks (e.g. different velocities for HalfCheetah). Quick adaptation is defined by the number of gradient steps it takes to adapt. MAML aims to maximize the RL objective for each task after `X` gradient steps. Doing this requires partitioning the algorithm into two steps. The first step is data collection. This involves collecting data for each task for each step of adaptation (from `1, 2, ..., X`). The second step is the meta-update step. This second step takes all the aggregated ddata from the first step and computes the meta-gradient. 
+On a high level, MAML seeks to learn quick adaptation across different tasks (e.g. different velocities for HalfCheetah). Quick adaptation is defined by the number of gradient steps it takes to adapt. MAML aims to maximize the RL objective for each task after `X` gradient steps. Doing this requires partitioning the algorithm into two steps. The first step is data collection. This involves collecting data for each task for each step of adaptation (from `1, 2, ..., X`). The second step is the meta-update step. This second step takes all the aggregated ddata from the first step and computes the meta-gradient.
 
 Code here is adapted from https://github.com/jonasrothfuss, which outperforms vanilla MAML and avoids computation of the higher order gradients during the meta-update step. MAML is evaluated on custom environments that are described in greater detail here.
 
@@ -36,10 +36,9 @@ The RLlib maintainers team at Anyscale has made the decision to deprecate some l
 algorithm, we will consider re-adding it back to RLlib in the future. Please let us know if you have any questions or concerns on
 the [Ray Discuss forum](discuss.ray.io).
 
+
 ## Getting Involved
 
-Getting Involved
-----------------
 
 .. list-table::
    :widths: 25 50 25 25
@@ -49,15 +48,15 @@ Getting Involved
      - Purpose
      - Estimated Response Time
      - Support Level
-   * - `Discourse Forum`_
+   * - [Discuss Forun](https://discuss.ray.io)
      - For discussions about development and questions about usage.
      - < 1 week
      - Community
-   * - `GitHub Issues`_
+   * - [GitHub Issues](https://github.com/ray-project/rllib-contrib-maml/issues)
      - For reporting bugs and filing feature requests.
      - N/A
      - Community
-   * - `Slack`_
+   * - [Slack](https://forms.gle/9TSdDYUgxYs8SA9e8)
      - For collaborating with other Ray users.
      - < 2 days
      - Community
