@@ -10,7 +10,7 @@ name = "rllib-maml"
 authors = [{name = "Anyscale Inc."}]
 version = "0.1.0"
 description = ""
-readme = "README.rst"
+readme = "README.md"
 requires-python = ">=3.7, <3.11"
 dependencies = ["ray[rllib]==2.3.1"]
 

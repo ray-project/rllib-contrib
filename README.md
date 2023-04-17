@@ -40,23 +40,8 @@ the [Ray Discuss forum](discuss.ray.io).
 ## Getting Involved
 
 
-.. list-table::
-   :widths: 25 50 25 25
-   :header-rows: 1
-
-   * - Platform
-     - Purpose
-     - Estimated Response Time
-     - Support Level
-   * - [Discuss Forun](https://discuss.ray.io)
-     - For discussions about development and questions about usage.
-     - < 1 week
-     - Community
-   * - [GitHub Issues](https://github.com/ray-project/rllib-contrib-maml/issues)
-     - For reporting bugs and filing feature requests.
-     - N/A
-     - Community
-   * - [Slack](https://forms.gle/9TSdDYUgxYs8SA9e8)
-     - For collaborating with other Ray users.
-     - < 2 days
-     - Community
+| Platform | Purpose | Estimated Response Time | Support Level |
+| --- | --- | --- | --- |
+| [Discuss Forun](https://discuss.ray.io) | For discussions about development and questions about usage. | < 1 week | Community |
+| [GitHub Issues](https://github.com/ray-project/rllib-contrib-maml/issues) | For reporting bugs and filing feature requests. | N/A | Community |
+| [Slack](https://forms.gle/9TSdDYUgxYs8SA9e8) | For collaborating with other Ray users. | < 2 days | Community |
