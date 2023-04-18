@@ -1,0 +1,5 @@
+gymnasium[mujoco]==0.28.1
+higher
+ray[rllib]==2.3.1
+tensorflow==2.11.0
+torch==1.12.0
