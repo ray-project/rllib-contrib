@@ -2,15 +2,16 @@ from gymnasium.wrappers import TimeLimit
 import unittest
 
 import ray
-import ray.rllib.algorithms.maml as maml
-from ray.rllib.examples.env.cartpole_mass import CartPoleMassEnv
-from ray.rllib.examples.env.pendulum_mass import PendulumMassEnv
 from ray.rllib.utils.test_utils import (
     check_compute_single_action,
     check_train_results,
     framework_iterator,
 )
 from ray.tune.registry import register_env
+
+from rllib_maml.maml import MAMLConfig
+from rllib_maml.env.cartpole_mass import CartPoleMassEnv
+from rllib_maml.env.pendulum_mass import PendulumMassEnv
 
 
 class TestMAML(unittest.TestCase):
@@ -32,7 +33,7 @@ class TestMAML(unittest.TestCase):
 
     def test_maml_compilation(self):
         """Test whether MAML can be built with all frameworks."""
-        config = maml.MAMLConfig().rollouts(num_rollout_workers=1)
+        config = MAMLConfig().rollouts(num_rollout_workers=1)
 
         num_iterations = 1
 

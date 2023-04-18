@@ -1,0 +1,84 @@
+from gymnasium.wrappers import TimeLimit
+
+import ray
+from ray import air
+from ray import tune
+from rllib_maml.maml import MAML, MAMLConfig
+from ray.rllib.examples.env.cartpole_mass import CartPoleMassEnv
+from ray.tune.registry import register_env
+
+"""
+# Same configs as Pendulum
+cartpole-maml:
+    env: CartPole-v1
+    run: MAML
+    stop:
+        training_iteration: 100
+    config:
+        # Works with both frameworks, "tf" and "torch".
+        framework: torch
+        rollout_fragment_length: 200
+        num_envs_per_worker: 10
+        inner_adaptation_steps: 1
+        maml_optimizer_steps: 5
+        gamma: 0.99
+        lambda: 1.0
+        lr: 0.001
+        vf_loss_coeff: 0.5
+        clip_param: 0.3
+        kl_target: 0.01
+        kl_coeff: 0.001
+        num_workers: 20
+        num_gpus: 1
+        inner_lr: 0.03
+        clip_actions: False
+        use_meta_env: False
+        model:
+            fcnet_hiddens: [64, 64]
+
+"""
+
+if __name__ == "__main__":
+    ray.init()
+    register_env(
+        "cartpole",
+        lambda env_cfg: TimeLimit(CartPoleMassEnv(), max_episode_steps=200),
+    )
+
+    rollout_fragment_length = 32
+
+    config = (
+        MAMLConfig()
+        .rollouts(
+            num_rollout_workers=4, rollout_fragment_length=rollout_fragment_length
+        )
+        .framework("torch")
+        .environment("cartpole", clip_actions=False)
+        .training(
+            inner_adaptation_steps=1,
+            maml_optimizer_steps=5,
+            gamma=0.99,
+            lambda_=1.0,
+            lr=0.001,
+            vf_loss_coeff=0.5,
+            inner_lr=0.03,
+            use_meta_env=False,
+            clip_param=0.3,
+            kl_target=0.01,
+            kl_coeff=0.001,
+            model=dict(fcnet_hiddens=[64, 64]),
+            train_batch_size=rollout_fragment_length,
+        )
+    )
+
+    num_iterations = 100
+
+    tuner = tune.Tuner(
+        MAML,
+        param_space=config.to_dict(),
+        run_config=air.RunConfig(
+            stop={"training_iteration": num_iterations},
+            failure_config=air.FailureConfig(fail_fast="raise"),
+        ),
+    )
+    results = tuner.fit()
