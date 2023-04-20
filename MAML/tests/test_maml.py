@@ -10,8 +10,8 @@ from ray.rllib.utils.test_utils import (
 from ray.tune.registry import register_env
 
 from rllib_maml.maml import MAMLConfig
-from rllib_maml.env.cartpole_mass import CartPoleMassEnv
-from rllib_maml.env.pendulum_mass import PendulumMassEnv
+from rllib_maml.envs.cartpole_mass import CartPoleMassEnv
+from rllib_maml.envs.pendulum_mass import PendulumMassEnv
 
 
 class TestMAML(unittest.TestCase):

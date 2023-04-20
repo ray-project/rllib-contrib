@@ -346,7 +346,6 @@ class MAML(Algorithm):
             split = []
             metrics = {}
             for samples in itr:
-
                 # Processing Samples (Standardize Advantages)
                 split_lst = []
                 for sample in samples:
