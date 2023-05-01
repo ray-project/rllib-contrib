@@ -6,10 +6,11 @@ name: MAML Tests
 on:
   push:
     branches: [ "main" ]
+    paths:
+      - "MAML/**"
   pull_request:
     branches: [ "main" ]
-  paths:
-    - "MAML/**"
+
 
 jobs:
   build:
