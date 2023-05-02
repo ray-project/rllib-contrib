@@ -9,6 +9,7 @@ from ray.rllib.utils.test_utils import (
     check_train_results,
     framework_iterator,
 )
+from rllib_contrib_shared.checkpointing_testing_helpers import ckpt_restore_test
 
 
 class TestA3C(unittest.TestCase):
@@ -89,6 +90,13 @@ class TestA3C(unittest.TestCase):
             self.assertLessEqual(coeff, 0.00011)
 
             algo.stop()
+
+    def test_a3c_checkpoint_restore(self):
+        config = A3CConfig().exploration(explore=False).rollouts(num_rollout_workers=1)
+        ckpt_restore_test(
+            config,
+            "CartPole-v1",
+        )
 
 
 if __name__ == "__main__":
