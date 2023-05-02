@@ -7,13 +7,13 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "MAML/**.py"
-      - "MAML/**.yaml"
+      - "maml/**.py"
+      - "maml/**.yaml"
   pull_request:
     branches: [ "main" ]
     paths:
-      - "MAML/**.py"
-      - "MAML/**.yaml"
+      - "maml/**.py"
+      - "maml/**.yaml"
 
 
 jobs:
@@ -35,11 +35,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         python -m pip install flake8 pytest
-        cd MAML/
+        cd maml/
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
         pip install -e .
         pip install -e ".[dependencies]"
     - name: Test with pytest
       run: |
-        cd MAML/
+        cd maml/
         pytest tests/
