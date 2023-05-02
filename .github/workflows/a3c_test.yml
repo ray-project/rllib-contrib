@@ -7,9 +7,14 @@ on:
   push:
     branches: [ "main" ]
     paths:
-      - "a3c/**"
+      - "a3c/**.py"
+      - "a3c/**.yaml"
   pull_request:
     branches: [ "main" ]
+    paths:
+      - "a3c/**.py"
+      - "a3c/**.yaml"
+
 
 
 jobs:
