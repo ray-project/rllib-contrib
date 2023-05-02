@@ -9,13 +9,6 @@ Code here is adapted from https://github.com/jonasrothfuss, which outperforms va
 MAML uses additional metrics to measure performance; episode_reward_mean measures the agent’s returns before adaptation, episode_reward_mean_adapt_N measures the agent’s returns after N gradient steps of inner adaptation, and adaptation_delta measures the difference in performance before and after adaptation.
 
 
-## Table of Contents
-
-- [Installation](#installation)
-- [Usage](#usage)
-- [Maintenance](#maintenance)
-- [Getting Involved](#getting-involved)
-
 ## Installation
 
 ```
