@@ -8,6 +8,10 @@ on:
     branches: [ "main" ]
     paths:
       - "a3c/**"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "a3c/**"
 
 
 jobs:

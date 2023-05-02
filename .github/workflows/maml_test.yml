@@ -8,6 +8,10 @@ on:
     branches: [ "main" ]
     paths:
       - "MAML/**"
+  pull_request:
+    branches: [ "main" ]
+    paths:
+      - "MAML/**"
 
 
 jobs:
